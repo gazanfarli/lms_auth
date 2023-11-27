@@ -1,10 +1,7 @@
 package com.example.lms_api.service;
 
-import com.example.lms_api.entity.User;
-import org.springframework.http.ResponseEntity;
-
-import java.util.Optional;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 public interface IUserService {
-//    ResponseEntity<User> getUserByEmail(String email);
+    UserDetailsService userDetailsService();
 }

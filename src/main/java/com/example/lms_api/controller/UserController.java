@@ -1,12 +1,23 @@
 package com.example.lms_api.controller;
 
+import com.example.lms_api.entity.User;
+import com.example.lms_api.service.IUserService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("")
+@RequestMapping("/api/v1/user")
+@RequiredArgsConstructor
 public class UserController {
-    public String getUser() {
-        return "Yeah buddy, you made it";
-    }
+
+    private final IUserService userService;
+
+//    @GetMapping
+//    public ResponseEntity<User> getAllEmployees (@RequestBody String email) {
+//        return userService.getUserByEmail(email);
+//    }
 }

@@ -1,4 +1,4 @@
-package com.example.lms_api.config;
+package com.example.lms_api.service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.function.Function;
 
 @Service
-public class JwtService {
+public class IJwtService {
     private static final String SECRET_KEY = "C83FD3216E119DC91983AB4354257";
     public String extractUserName(String jwt) {
         return extractClaim(jwt, Claims::getSubject);
@@ -46,7 +46,7 @@ public class JwtService {
 
     public boolean isTokenValid(String token, UserDetails userDetails) {
         final String username = extractUserName(token);
-        return username.equals(userDetails.getUsername()) && !isTokenExpired();
+        return username.equals(userDetails.getUsername()) && !isTokenExpired(token);
     }
 
     private boolean isTokenExpired(String token) {
